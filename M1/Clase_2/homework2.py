@@ -46,10 +46,24 @@ c) ¿Qué tipo de variables son? <br>
 d) ¿Hay valores faltantes? <br>
 e) ¿Cuál es el total de emisiones de CO2 para 'América Latina y Caribe' en el año 2010?"""
 
+#2) a) ¿Cuántas variables hay? <br>
 variables = len(dicc_emisiones.keys())
 keysvar = list(dicc_emisiones.keys())
 
 print("2. a) Hay", variables, "variables y son: ",keysvar)
+
+#b) ¿Qué tipos de datos usar para cada una? <br>
+#c) ¿Qué tipo de variables son? <br>
+
+for i in dicc_emisiones.values():
+    print(i[1000])
+
+print('')
+
+for i in dicc_emisiones.values():
+    print(type(i[1000]))
+
+#Vemos que a los numeros los toma como str, por eso haremos una transformacion
 
 
 
@@ -78,7 +92,36 @@ for indice, elemento in enumerate(dicc_emisiones['co2_percapita']):
         elemento = None
     dicc_emisiones['co2_percapita'][indice] = elemento
 
+#Volvemos a ver que tipo de datos tenemos
+for i in dicc_emisiones.values():
+    print(i[1000])
 
+print('')
+
+for i in dicc_emisiones.values():
+    print(type(i[1000]))
+
+#Finalmente vemos que ahora tenemos str, int, float
+
+
+#d) ¿Hay valores faltantes? 
+
+valores_falt = False
+
+for i in dicc_emisiones.values():
+    if None in i:
+        valores_falt = True
+        break
+    else: 
+        pass
+    
+if valores_falt == True: 
+    print('Hay valores faltantes') 
+else: 
+    print('No hay valores faltantes')
+
+
+#e) ¿Cuál es el total de emisiones de CO2 para 'América Latina y Caribe' en el año 2010?
 
 filtro_region = 'América Latina y Caribe'
 filtro_anio = 2010
